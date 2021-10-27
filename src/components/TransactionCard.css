@@ -27,9 +27,9 @@
     to {background-color: lightgrey;}
 }
 
-:hover.transactionCardDiv {
-    animation: dimBackground 0.1s ease forwards;
-}
+/*:hover.transactionCardDiv {*/
+/*    animation: dimBackground 0.1s ease forwards;*/
+/*}*/
 
 .transactionImageDiv {
     width: 20%;
