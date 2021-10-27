@@ -11,7 +11,8 @@ interface TransactionResponse {
     transactions: Array<Transaction>
 }
 
-function TransactionContainer() {
+// @ts-ignore
+export function TransactionContainer({handleAddingTransactions}) {
     const [transactionList, setTransactionList] = useState<Transaction[]>([]);
 
 
@@ -29,6 +30,7 @@ function TransactionContainer() {
         axios.get<TransactionResponse>(`https://api.monzo.com/transactions?expand[]=merchant&account_id=${monzoAccountId}&since=2021-10-01T00:00:00Z`, config)
             .then((res) => {
                 setTransactionList(res.data.transactions);
+                handleAddingTransactions(res.data.transactions);
             })
             .catch((err) => {
                 console.log(err);
@@ -60,5 +62,3 @@ function TransactionContainer() {
         </React.Fragment>
     )
 }
-
-export default TransactionContainer;

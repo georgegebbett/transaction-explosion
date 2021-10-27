@@ -7,3 +7,10 @@ export interface Transaction {
     scheme: string
 }
 
+export interface TransactionCardProps {
+    transaction: {
+        title: string,
+        imageUrl: string,
+        price: number
+    }
+}

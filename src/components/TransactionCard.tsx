@@ -1,14 +1,9 @@
 import * as React from 'react';
 
 import './TransactionCard.css';
+import {TransactionCardProps} from "../types/types";
 
-interface TransactionCardProps {
-    transaction: {
-        title: string,
-        imageUrl: string,
-        price: number
-    }
-}
+
 
 export function TransactionCard(props: TransactionCardProps) {
     const { transaction } = props;
