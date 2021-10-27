@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TransactionCard from "./TransactionCard";
+import {TransactionCard} from "./TransactionCard";
 import './TransactionContainer.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -52,6 +52,8 @@ function TransactionContainer() {
                                 price: Math.abs(transaction.amount)
                             }
                         }/>)
+                    } else {
+                        return false;
                     }
                 })}
             </div>

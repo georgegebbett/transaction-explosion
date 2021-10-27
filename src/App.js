@@ -1,6 +1,3 @@
-import logo from './logo.svg';
-// import './App.css';
-import TransactionCard from "./components/TransactionCard";
 import TransactionContainer from "./components/TransactionContainer";
 
 function App() {
