@@ -1,0 +1,8 @@
+.transactionContainer {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
