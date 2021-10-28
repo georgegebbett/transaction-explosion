@@ -6,15 +6,18 @@ interface TransactionCardProps {
     transaction: {
         title: string,
         imageUrl: string,
-        price: number
+        price: number,
+        index: number,
+        fullLength: number
     }
 }
 
 export function TransactionCard(props: TransactionCardProps) {
     const { transaction } = props;
+    const hideTime: number = (transaction.fullLength *0.1 + 0.5)
     const myStyle = {
-        top: (Math.floor(Math.random()*90)).toString() + 'vh',
-        left: (Math.floor(Math.random()*74)).toString() + 'vw'
+        animationDelay: ((transaction.fullLength - transaction.index) * 0.1).toString() + 's, ' + hideTime.toString() + 's',
+        zIndex: transaction.fullLength - transaction.index
     };
 
     return (
@@ -24,12 +27,16 @@ export function TransactionCard(props: TransactionCardProps) {
                 style={myStyle}
             >
                 <div className="transactionImageDiv">
-                    <img src={transaction.imageUrl} alt={`Logo for ${transaction.title}`} className="transactionImage"/>
+                    <img src={transaction.imageUrl} className="transactionImage"/>
                 </div>
-                <div className="transactionTitleDiv">
+                <div
+                    className="transactionTitleDiv"
+                >
                     {transaction.title}
                 </div>
-                <div className="transactionPriceDiv">
+                <div
+                    className="transactionPriceDiv"
+                >
                     £{transaction.price/100}
                 </div>
             </div>

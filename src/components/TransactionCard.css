@@ -8,20 +8,38 @@
     justify-content: space-between;
     padding: 10px;
     position: fixed;
-    animation: explodeCards ease-in-out 5s 2 alternate forwards;
+    top: 47.5vh;
+    left: 40vw;
+    /*animation: 0.5s ease 1 normal both running scrollCards, 20s ease 10s 1 normal forwards running hideCards;*/
+    animation-name: scrollCards, hideCards;
+    animation-duration: 0.5s, 0.5s;
+    animation-timing-function: ease, ease;
+    animation-fill-mode: both, forwards;
     overflow: hidden;
+    opacity: 1;
 }
 
 /*.transactionCardDiv:nth-of-type(2n) {*/
 /*    animation: explodeCards 1s forwards;*/
 /*}*/
 
-@keyframes explodeCards {
-    from {
-        top: 47.5vh;
-        left: 40vw;
+@keyframes scrollCards {
+    0% {
+        top: 0vh;
+        z-index: 0;
+    }
+
+    1% {
+        z-index: initial;
     }
 }
+
+@keyframes hideCards {
+    to {
+        opacity: 0;
+    }
+}
+
 
 @keyframes dimBackground {
     to {background-color: lightgrey;}
@@ -46,4 +64,53 @@
     text-align: left;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.informationContainer {
+    font-size: 3rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#spentFigure {
+    opacity: 0;
+    animation: textAppear;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    top: inherit;
+    left: inherit;
+    position: fixed;
+}
+
+#roundFigure {
+    opacity: 0;
+    animation: textAppear;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    top: inherit;
+    left: inherit;
+    position: fixed;
+}
+
+#roundComplete {
+    opacity: 0;
+    animation: textAppear;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    top: inherit;
+    left: inherit;
+    position: fixed;
+}
+
+@keyframes textAppear {
+    to {opacity: 1}
+
 }
