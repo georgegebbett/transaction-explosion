@@ -4,6 +4,7 @@ export interface Transaction {
         logo: string
     },
     amount: number,
-    scheme: string
+    scheme: string,
+    id: string
 }
 
